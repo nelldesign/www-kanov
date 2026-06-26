@@ -1,0 +1,6 @@
+# Temp folders
+thumbs/
+tmp/
+*.tmp
+.DS_Store
+node_modules/
