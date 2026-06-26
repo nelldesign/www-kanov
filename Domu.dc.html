@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Saira+Semi+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;}
+a{text-decoration:none;color:inherit;}
+.nav-frost{transition:background .3s,box-shadow .3s,backdrop-filter .3s;}
+.nlink{position:relative;color:#3a4658;font-weight:600;font-size:14px;transition:color .2s;}
+.nlink:hover{color:#0f1722;}
+.btn-red{background:linear-gradient(135deg,#e21330,#b3061a);color:#fff;font-weight:700;border-radius:0px;box-shadow:0 14px 34px -12px rgba(205,7,30,.7),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,box-shadow .2s;}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 20px 40px -12px rgba(205,7,30,.8),inset 0 1px 0 rgba(255,255,255,.4);}
+.btn-ghost-l{background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(255,255,255,.4));backdrop-filter:blur(14px) saturate(1.5);-webkit-backdrop-filter:blur(14px) saturate(1.5);border:1px solid rgba(255,255,255,.95);color:#15233a;font-weight:600;border-radius:0px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.95),inset -1px -1px 0 rgba(120,150,200,.25),0 10px 26px -14px rgba(20,40,70,.4);transition:background .2s;}
+.btn-ghost-l:hover{background:linear-gradient(135deg,rgba(255,255,255,.85),rgba(255,255,255,.6));}
+.btn-ghost-d{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04));backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.24);color:#fff;font-weight:600;border-radius:0px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.3),inset -1px -1px 0 rgba(0,0,0,.2);transition:background .2s;}
+.btn-ghost-d:hover{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));}
+.gcard-l{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.86),rgba(255,255,255,.58));backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border:1px solid rgba(255,255,255,.95);box-shadow:0 26px 60px -26px rgba(20,40,70,.5),inset 1.5px 1.5px 0 rgba(255,255,255,.98),inset -1.5px -1.5px 0 rgba(120,150,200,.32),inset 0 -26px 50px -32px rgba(120,150,200,.5);transition:transform .25s,box-shadow .25s;}
+.gcard-l::before{content:"";position:absolute;top:-60%;left:-30%;width:85%;height:200%;background:linear-gradient(102deg,transparent,rgba(255,255,255,.7) 50%,transparent);transform:rotate(7deg);pointer-events:none;opacity:.85;transition:transform .7s ease;}
+.gcard-l:hover{transform:translateY(-5px);box-shadow:0 38px 72px -28px rgba(20,40,70,.6),inset 1.5px 1.5px 0 rgba(255,255,255,.98),inset -1.5px -1.5px 0 rgba(120,150,200,.32);}
+.gcard-l:hover::before{transform:rotate(7deg) translateX(70%);}
+.gcard-l::after,.gcard-d::after,.glass-glare::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(circle 200px at var(--mx,50%) var(--my,50%),rgba(255,255,255,.6),rgba(255,255,255,.12) 32%,transparent 60%);}
+.gcard-l:hover::after,.glass-glare:hover::after{opacity:.9;}
+.gcard-d:hover::after{opacity:.55;}
+.glass-glare{position:relative;overflow:hidden;}
+.gcard-d{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.035));backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(255,255,255,.2);box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.34),inset -1.5px -1.5px 0 rgba(0,0,0,.25),inset 0 -28px 56px -32px rgba(120,170,255,.55),0 26px 60px -28px rgba(0,0,0,.7);transition:transform .25s,border-color .25s;}
+.gcard-d::before{content:"";position:absolute;top:-60%;left:-30%;width:85%;height:200%;background:linear-gradient(102deg,transparent,rgba(255,255,255,.3) 50%,transparent);transform:rotate(7deg);pointer-events:none;transition:transform .7s ease;}
+.gcard-d:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.42);}
+.gcard-d:hover::before{transform:rotate(7deg) translateX(70%);}
+.glass-pane{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.66),rgba(255,255,255,.34));backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border:1px solid rgba(255,255,255,.9);box-shadow:0 20px 50px -22px rgba(20,40,70,.4),inset 0 1px 0 rgba(255,255,255,.95);}
+.glass-pane-d{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.03));backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border:1px solid rgba(255,255,255,.16);box-shadow:inset 0 1px 0 rgba(255,255,255,.26),0 24px 60px -28px rgba(0,0,0,.6);}
+.sheen::after{content:"";position:absolute;top:0;left:0;right:0;height:42%;background:linear-gradient(180deg,rgba(255,255,255,.4),transparent);pointer-events:none;border-radius:inherit;opacity:.5;}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0;}
+.imgz{transition:transform .6s ease;}
+.imgwrap:hover .imgz{transform:scale(1.06);}
+@media(max-width:880px){.hide-m{display:none!important;}.hero-h1{font-size:46px!important;}.sec-h2{font-size:32px!important;}.grid-m1{grid-template-columns:1fr!important;}.grid-m2{grid-template-columns:1fr 1fr!important;}.pad-m{padding-left:22px!important;padding-right:22px!important;}}
+</style>
+</helmet>
+
+<div style="font-family:'Klavika','Saira',sans-serif;background:linear-gradient(180deg,#e9eff6 0%,#eef3f8 40%,#e7edf5 100%);color:#15233a;overflow-x:hidden;position:relative;">
+
+  <!-- ambient light orbs (give the frosted glass something to refract) -->
+  <div class="orb" style="top:840px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(120,170,255,.5),transparent 70%);"></div>
+  <div class="orb" style="top:1180px;right:-140px;width:460px;height:460px;background:radial-gradient(circle,rgba(205,7,30,.22),transparent 70%);"></div>
+  <div class="orb" style="top:2700px;left:-120px;width:480px;height:480px;background:radial-gradient(circle,rgba(120,170,255,.4),transparent 70%);"></div>
+  <div class="orb" style="top:3300px;right:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(150,120,255,.3),transparent 70%);"></div>
+
+  <!-- ============ STICKY GLASS NAV ============ -->
+  <div style="position:sticky;top:0;z-index:100;padding:14px 22px 0;">
+    <div class="nav-frost pad-m" style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;border-radius:0px;background:rgba(255,255,255,.62);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.85);box-shadow:0 10px 34px -14px rgba(20,40,70,.28),inset 0 1px 0 rgba(255,255,255,.9);">
+      <a href="Domu.dc.html"><img src="assets/logo-onlight.png" alt="KANOV — Podnikatelský inkubátor" style="height:30px;display:block;"></a>
+      <div class="hide-m" style="display:flex;align-items:center;gap:28px;">
+        <a class="nlink" href="Prostory.dc.html">Prostory</a>
+        <a class="nlink" href="Startupy.dc.html">Startupy &amp; studenti</a>
+        <a class="nlink" href="Inovace.dc.html">Inovace &amp; hub</a>
+        <a class="nlink" href="O-nas.dc.html">O nás</a>
+        <a class="nlink" href="Kontakt.dc.html">Kontakt</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="hide-m" style="display:flex;gap:6px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;">
+          <span style="color:#15233a;">CZ</span><span style="color:#aab6c6;">DE</span><span style="color:#aab6c6;">EN</span>
+        </div>
+        <a class="btn-red" href="Kontakt.dc.html" style="padding:11px 20px;font-size:14px;">Domluvit prohlídku</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ HERO (LIGHT GLASS — from 15) ============ -->
+  <div style="position:relative;margin-top:-78px;">
+    <div style="position:relative;height:760px;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1900&q=80" alt="Prosklená budova" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(238,243,248,.35) 0%,rgba(238,243,248,.05) 26%,rgba(238,243,248,.55) 72%,rgba(238,243,248,1) 100%);"></div>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(238,243,248,.45),transparent 55%);"></div>
+      <div class="pad-m" style="position:absolute;left:0;right:0;bottom:170px;max-width:1280px;margin:0 auto;padding:0 34px;">
+        <p style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.2em;color:#CD071E;margin:0 0 20px;text-transform:uppercase;">Podnikatelský inkubátor · Karlovarský kraj</p>
+        <h1 class="hero-h1" style="font-weight:800;font-size:74px;line-height:.98;letter-spacing:-.03em;margin:0;max-width:840px;color:#15233a;">Prostor, kde z myšlenek<br>rostou <span style="color:#CD071E;">inovace</span>.</h1>
+        <p style="font-size:18px;line-height:1.6;color:#3a4658;margin:26px 0 32px;max-width:520px;">Prosklené kanceláře a haly k pronájmu, digitální hub a podpora startupů — v Karlových Varech a v Chebu, na jednom místě.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a class="btn-red" href="Kontakt.dc.html" style="padding:16px 30px;font-size:15px;">Domluvit prohlídku</a>
+          <a class="btn-ghost-l" href="Prostory.dc.html" style="padding:16px 30px;font-size:15px;">Volné prostory →</a>
+        </div>
+      </div>
+    </div>
+    <!-- floating glass stat cards -->
+    <div class="pad-m grid-m2" style="position:relative;margin-top:-92px;z-index:5;max-width:1280px;margin-left:auto;margin-right:auto;padding:0 34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div class="gcard-l" style="border-radius:0px;padding:22px 24px;"><div style="font-size:36px;font-weight:800;color:#0e1b2e;">2</div><div style="font-size:12.5px;font-weight:600;color:#33485f;margin-top:3px;">pobočky · Karlovy Vary · Cheb</div></div>
+      <div class="gcard-l" style="border-radius:0px;padding:22px 24px;"><div style="font-size:36px;font-weight:800;color:#0e1b2e;">2 320<span style="font-size:16px;color:#CD071E;"> m²</span></div><div style="font-size:12.5px;font-weight:600;color:#33485f;margin-top:3px;">prostor v pobočce Cheb</div></div>
+      <div class="gcard-l" style="border-radius:0px;padding:22px 24px;"><div style="font-size:36px;font-weight:800;color:#0e1b2e;">40+</div><div style="font-size:12.5px;font-weight:600;color:#33485f;margin-top:3px;">kanceláří k pronájmu</div></div>
+      <div class="gcard-l" style="border-radius:0px;padding:22px 24px;"><div style="font-size:36px;font-weight:800;color:#0e1b2e;">150<span style="font-size:16px;color:#CD071E;"> Kč</span></div><div style="font-size:12.5px;font-weight:600;color:#33485f;margin-top:3px;">za m² / měsíc od</div></div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO + LOCATIONS ============ -->
+  <div class="pad-m" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:90px 34px 20px;">
+    <div class="grid-m1" style="display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:end;">
+      <div>
+        <div style="width:48px;height:5px;background:#CD071E;margin-bottom:26px;border-radius:2px;"></div>
+        <h2 class="sec-h2" style="font-weight:800;font-size:42px;line-height:1.08;letter-spacing:-.02em;margin:0;">Inovační infrastruktura<br>Karlovarského kraje.</h2>
+      </div>
+      <p style="font-size:16.5px;line-height:1.7;color:#46566c;margin:0;">Podnikatelský inkubátor KANOV nabízí inovativním a začínajícím firmám chráněné prostředí, které usnadní start podnikání — a pomáhá z nich budovat stabilní součást ekonomiky kraje.</p>
+    </div>
+    <div class="grid-m1" style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px;">
+      <div class="imgwrap" style="position:relative;border-radius:0px;overflow:hidden;height:260px;"><img class="imgz" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=80" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,18,30,.82),transparent 58%);"></div><div style="position:absolute;left:24px;bottom:20px;color:#fff;"><span style="background:#CD071E;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;">CENTRÁLA</span><div style="font-size:24px;font-weight:800;margin-top:9px;">Karlovy Vary</div><p style="font-size:13px;color:#d4dae3;margin:4px 0 0;">Kanceláře, coworking, Kavéra</p></div></div>
+      <div class="imgwrap" style="position:relative;border-radius:0px;overflow:hidden;height:260px;"><img class="imgz" src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&q=80" style="width:100%;height:100%;object-fit:cover;"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,18,30,.82),transparent 58%);"></div><div style="position:absolute;left:24px;bottom:20px;color:#fff;"><span style="background:#15233a;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;">NOVÁ BUDOVA · 2022</span><div style="font-size:24px;font-weight:800;margin-top:9px;">Cheb</div><p style="font-size:13px;color:#d4dae3;margin:4px 0 0;">Sál, Kavéra, moderní zázemí</p></div></div>
+    </div>
+  </div>
+
+  <!-- ============ PRONÁJEM PROSTOR (LIGHT) ============ -->
+  <div class="pad-m" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:84px 34px 40px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;flex-wrap:wrap;gap:16px;">
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;color:#CD071E;margin:0 0 12px;text-transform:uppercase;">01 — Pronájem prostor</p>
+        <h2 class="sec-h2" style="font-weight:800;font-size:40px;letter-spacing:-.02em;margin:0;">Prostory na míru vašemu růstu</h2>
+      </div>
+      <a class="nlink" href="Prostory.dc.html" style="font-size:14px;color:#CD071E;font-weight:700;">Všechny prostory →</a>
+    </div>
+    <div class="grid-m2" style="display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:16px;">
+      <div class="imgwrap" style="position:relative;border-radius:0px;overflow:hidden;min-height:380px;">
+        <img class="imgz" src="https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=1000&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,18,30,.85),transparent 55%);"></div>
+        <div style="position:absolute;left:26px;right:26px;bottom:24px;color:#fff;"><div style="font-size:26px;font-weight:800;">Kanceláře &amp; coworking</div><p style="font-size:14.5px;color:#d4dae3;margin:8px 0 0;line-height:1.5;">16–53 m², plně vybavené, vzduchotechnika s rekuperací a výhledem do kraje.</p></div>
+      </div>
+      <div class="imgwrap" style="position:relative;border-radius:0px;overflow:hidden;min-height:380px;">
+        <img class="imgz" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,18,30,.85),transparent 55%);"></div>
+        <div style="position:absolute;left:22px;right:22px;bottom:22px;color:#fff;"><div style="font-size:22px;font-weight:800;">Sklady &amp; výroba</div><p style="font-size:13.5px;color:#d4dae3;margin:7px 0 0;line-height:1.5;">Flexibilní haly pro lehkou výrobu a logistiku.</p></div>
+      </div>
+      <div style="display:grid;grid-template-rows:1fr 1fr;gap:16px;">
+        <div class="gcard-l" style="border-radius:0px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#CD071E;letter-spacing:.1em;">KONFERENČNÍ SÁL</span>
+          <div><div style="font-size:22px;font-weight:800;">Sál pro 50 osob</div><p style="font-size:13px;color:#5a6b82;margin:6px 0 0;">2 000 Kč/den · catering na míru</p></div>
+        </div>
+        <div class="glass-glare" style="position:relative;overflow:hidden;border-radius:0px;padding:26px;background:linear-gradient(135deg,rgba(21,35,58,.82),rgba(21,35,58,.62));backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(140,180,240,.34);box-shadow:inset 0 1px 0 rgba(180,210,255,.4),0 18px 44px -24px rgba(20,40,70,.6);color:#fff;display:flex;flex-direction:column;justify-content:space-between;">
+          <div style="position:absolute;top:-50%;left:-30%;width:80%;height:200%;background:linear-gradient(105deg,transparent,rgba(180,210,255,.22) 50%,transparent);transform:rotate(8deg);pointer-events:none;"></div>
+          <span style="position:relative;font-family:'Space Mono',monospace;font-size:11px;color:#9fc2ed;letter-spacing:.1em;">KAVÉRA · KAVÁRNA V BUDOVĚ</span>
+          <div style="position:relative;"><div style="font-size:22px;font-weight:800;">Kavéra</div><p style="font-size:13px;color:#c2d2e6;margin:6px 0 0;">Káva, schůzky i relax — free wifi</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ DARK GLASS — INOVACE & DIGITÁLNÍ HUB (from 16) ============ -->
+  <div style="position:relative;margin-top:70px;overflow:hidden;background:#0a0d14;color:#fff;">
+    <img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1900&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,13,20,.9),rgba(10,13,20,.78) 40%,rgba(10,13,20,.96));"></div>
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 82% 12%,rgba(80,140,220,.2),transparent 46%);"></div>
+    <div class="pad-m" style="position:relative;max-width:1280px;margin:0 auto;padding:88px 34px 92px;">
+      <div class="grid-m1" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 16px;margin-bottom:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2);"><span style="width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;"></span><span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;">DIGITÁLNÍ HUB · ONLINE</span></div>
+          <h2 class="sec-h2" style="font-family:'Klavika','Saira Semi Condensed','Saira',sans-serif;font-weight:800;font-size:46px;line-height:.98;letter-spacing:-.02em;margin:0;">Kde se kraj napojuje<br>na <span style="color:#ff3b54;">budoucnost</span>.</h2>
+          <p style="font-size:16.5px;line-height:1.65;color:#aab0bd;margin:24px 0 30px;max-width:480px;">Inovační technologie, výzkum a digitální hub pod jednou prosklenou střechou. Propojujeme startupy, univerzity a firmy Karlovarského kraje.</p>
+          <a class="btn-ghost-d" href="Inovace.dc.html" style="display:inline-block;padding:15px 28px;font-size:15px;">Více o digitálním hubu →</a>
+        </div>
+        <div class="grid-m2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div class="gcard-d" style="border-radius:0px;padding:26px;"><div style="font-size:30px;font-weight:800;">∞</div><div style="font-size:17px;font-weight:700;margin-top:14px;">Inovační technologie</div><p style="font-size:13px;color:#9aa0ad;margin:6px 0 0;line-height:1.5;">Vývoj, výzkum a transfer do praxe.</p></div>
+          <div class="gcard-d" style="border-radius:0px;padding:26px;"><div style="font-size:30px;font-weight:800;">↗</div><div style="font-size:17px;font-weight:700;margin-top:14px;">Akcelerace</div><p style="font-size:13px;color:#9aa0ad;margin:6px 0 0;line-height:1.5;">Mentoring a kapitál vědění.</p></div>
+          <div class="gcard-d" style="border-radius:0px;padding:26px;"><div style="font-size:30px;font-weight:800;">⌘</div><div style="font-size:17px;font-weight:700;margin-top:14px;">Digitální hub</div><p style="font-size:13px;color:#9aa0ad;margin:6px 0 0;line-height:1.5;">Páteř digitalizace regionu.</p></div>
+          <div style="border-radius:0px;padding:26px;background:linear-gradient(180deg,rgba(205,7,30,.32),rgba(205,7,30,.08));backdrop-filter:blur(14px);border:1px solid rgba(255,90,110,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.2);"><div style="font-size:30px;font-weight:800;color:#ff8a98;">⬡</div><div style="font-size:17px;font-weight:700;margin-top:14px;">Univerzity CZ + DE</div><p style="font-size:13px;color:#e0b4ba;margin:6px 0 0;line-height:1.5;">Přeshraniční spolupráce.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ STARTUPY & STUDENTI (LIGHT) ============ -->
+  <div class="pad-m" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:88px 34px 40px;">
+    <div class="grid-m1" style="display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;">
+      <div class="imgwrap" style="position:relative;border-radius:0px;overflow:hidden;min-height:420px;">
+        <img class="imgz" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1000&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+        <div class="sheen glass-glare" style="position:absolute;left:-1px;bottom:24px;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.5));backdrop-filter:blur(18px) saturate(1.5);-webkit-backdrop-filter:blur(18px) saturate(1.5);border:1px solid rgba(255,255,255,.85);border-radius:0px;padding:20px 26px;box-shadow:0 24px 50px -22px rgba(20,40,70,.5),inset 0 1px 0 rgba(255,255,255,.95);max-width:280px;">
+          <div style="font-family:'Space Mono',monospace;font-size:11px;color:#CD071E;letter-spacing:.1em;">PRO ZAČÍNAJÍCÍ</div>
+          <div style="font-size:19px;font-weight:800;margin-top:7px;line-height:1.25;">Od studentského nápadu k firmě</div>
+        </div>
+      </div>
+      <div>
+        <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;color:#CD071E;margin:0 0 12px;text-transform:uppercase;">02 — Startupy &amp; studenti</p>
+        <h2 class="sec-h2" style="font-weight:800;font-size:40px;letter-spacing:-.02em;margin:0;line-height:1.05;">Podpora pro odvážné nápady</h2>
+        <p style="font-size:16.5px;line-height:1.7;color:#46566c;margin:22px 0 28px;">Profesionální mentoring od odborníků ze zasídlených firem, právní, finanční i marketingové poradenství a komunita, která pomáhá nápadům dospět v životaschopné podniky.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="gcard-l" style="border-radius:0px;padding:18px 20px;"><div style="font-size:15px;font-weight:800;">Mentoring</div><p style="font-size:13px;color:#5a6b82;margin:4px 0 0;">Vlastní odborníci i externí partneři</p></div>
+          <div class="gcard-l" style="border-radius:0px;padding:18px 20px;"><div style="font-size:15px;font-weight:800;">Poradenství</div><p style="font-size:13px;color:#5a6b82;margin:4px 0 0;">Právo, finance, marketing, HR</p></div>
+          <div class="gcard-l" style="border-radius:0px;padding:18px 20px;"><div style="font-size:15px;font-weight:800;">Komunita</div><p style="font-size:13px;color:#5a6b82;margin:4px 0 0;">Networking se zasídlenými firmami</p></div>
+          <div class="gcard-l" style="border-radius:0px;padding:18px 20px;"><div style="font-size:15px;font-weight:800;">Studentské projekty</div><p style="font-size:13px;color:#5a6b82;margin:4px 0 0;">Spolupráce se školami v kraji</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CTA (DARK GLASS) ============ -->
+  <div class="pad-m" style="max-width:1280px;margin:70px auto 0;padding:0 34px;">
+    <div style="position:relative;border-radius:0px;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(10,13,20,.92),rgba(10,13,20,.55));"></div>
+      <div class="pad-m" style="position:relative;padding:72px 56px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;">
+        <div style="color:#fff;">
+          <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;color:#ff8a98;margin:0 0 14px;text-transform:uppercase;">Je čas na prostor se projevit</p>
+          <h2 class="sec-h2" style="font-family:'Klavika','Saira Semi Condensed','Saira',sans-serif;font-weight:800;font-size:40px;letter-spacing:-.02em;margin:0;line-height:1.0;">Pojďte se k nám podívat.</h2>
+          <p style="font-size:16px;color:#c4c9d4;margin:16px 0 0;max-width:480px;">Provedeme vás pobočkou, ukážeme volné prostory a navrhneme řešení na míru vašemu podnikání.</p>
+        </div>
+        <a class="btn-red" href="Kontakt.dc.html" style="padding:18px 34px;font-size:16px;white-space:nowrap;">Domluvit prohlídku →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div style="background:#0a0d14;color:#fff;margin-top:80px;">
+    <div class="pad-m" style="max-width:1280px;margin:0 auto;padding:72px 34px 40px;">
+      <div class="grid-m1" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">
+        <div>
+          <img src="assets/logo-ondark.png" alt="KANOV" style="height:32px;display:block;margin-bottom:20px;">
+          <p style="font-size:14px;line-height:1.7;color:#8a90a0;max-width:300px;">Inovační infrastruktura Karlovarského kraje. Prostory k pronájmu, digitální hub a podpora startupů ve dvou městech kraje.</p>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Web</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <a href="Prostory.dc.html">Pronájem prostor</a><a href="Startupy.dc.html">Startupy &amp; studenti</a><a href="Inovace.dc.html">Inovace &amp; hub</a><a href="O-nas.dc.html">O nás</a><a href="Kontakt.dc.html">Kontakt</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Pobočky</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <span>Karlovy Vary — centrála</span><span>Cheb</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Kontakt</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <span>Závodní 278, 360 18 Karlovy Vary</span><a href="mailto:info@kanov.cz">info@kanov.cz</a><span>www.kanov.cz</span>
+          </div>
+          <div style="display:flex;gap:6px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;margin-top:18px;"><span style="color:#fff;">CZ</span><span style="color:#5a6070;">DE</span><span style="color:#5a6070;">EN</span></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#6b7180;">
+        <span>© 2026 Podnikatelský inkubátor KANOV</span>
+        <span>Posilujeme inovační potenciál Karlovarského kraje.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="#0a0d14"/>
+<rect x="30" y="34" width="40" height="32" rx="1" fill="#CD071E"/>
+<rect x="30" y="34" width="40" height="6" fill="#e8324a"/>
+<text x="50" y="78" font-family="Arial, sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">KANOV</text>
+</svg>
+</template></x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._mh = (e) => {
+      const t = e.target;
+      const el = t && t.closest ? t.closest('.gcard-l,.gcard-d,.glass-glare') : null;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    };
+    document.addEventListener('pointermove', this._mh, { passive: true });
+  }
+  componentWillUnmount() {
+    if (this._mh) document.removeEventListener('pointermove', this._mh);
+  }
+}
+</script>
+</body>
+</html>

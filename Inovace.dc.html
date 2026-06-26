@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700;800;900&family=Saira+Semi+Condensed:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;}
+a{text-decoration:none;color:inherit;}
+.nlink{position:relative;color:#c4c9d4;font-weight:600;font-size:14px;transition:color .2s;}
+.nlink:hover{color:#fff;}
+.nlink.active{color:#ff5a6e;}
+.btn-red{background:linear-gradient(135deg,#e21330,#b3061a);color:#fff;font-weight:700;border-radius:0px;box-shadow:0 14px 34px -12px rgba(205,7,30,.7),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s,box-shadow .2s;}
+.btn-red:hover{transform:translateY(-2px);box-shadow:0 20px 40px -12px rgba(205,7,30,.8),inset 0 1px 0 rgba(255,255,255,.4);}
+.btn-ghost-d{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.04));backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border:1px solid rgba(255,255,255,.24);color:#fff;font-weight:600;border-radius:0px;box-shadow:inset 1px 1px 0 rgba(255,255,255,.3),inset -1px -1px 0 rgba(0,0,0,.2);transition:background .2s;}
+.btn-ghost-d:hover{background:linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,.08));}
+.gcard-d{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(255,255,255,.15),rgba(255,255,255,.035));backdrop-filter:blur(22px) saturate(1.4);-webkit-backdrop-filter:blur(22px) saturate(1.4);border:1px solid rgba(255,255,255,.2);box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.34),inset -1.5px -1.5px 0 rgba(0,0,0,.25),inset 0 -28px 56px -32px rgba(120,170,255,.55),0 26px 60px -28px rgba(0,0,0,.7);transition:transform .25s,border-color .25s;}
+.gcard-d::before{content:"";position:absolute;top:-60%;left:-30%;width:85%;height:200%;background:linear-gradient(102deg,transparent,rgba(255,255,255,.3) 50%,transparent);transform:rotate(7deg);pointer-events:none;transition:transform .7s ease;}
+.gcard-d:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.42);}
+.gcard-d:hover::before{transform:rotate(7deg) translateX(70%);}
+.gcard-d::after,.glass-glare::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .35s ease;background:radial-gradient(circle 220px at var(--mx,50%) var(--my,50%),rgba(140,180,255,.5),rgba(140,180,255,.1) 32%,transparent 60%);}
+.gcard-d:hover::after,.glass-glare:hover::after{opacity:.7;}
+.glass-glare{position:relative;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;}
+.imgz{transition:transform .6s ease;}
+.imgwrap:hover .imgz{transform:scale(1.06);}
+@media(max-width:880px){.hide-m{display:none!important;}.hero-h1{font-size:44px!important;}.sec-h2{font-size:30px!important;}.grid-m1{grid-template-columns:1fr!important;}.grid-m2{grid-template-columns:1fr 1fr!important;}.pad-m{padding-left:22px!important;padding-right:22px!important;}}
+</style>
+</helmet>
+
+<div style="font-family:'Klavika','Saira',sans-serif;background:#080b12;color:#eef2f8;overflow-x:hidden;position:relative;">
+
+  <div class="orb" style="top:420px;right:-160px;width:560px;height:560px;background:radial-gradient(circle,rgba(80,140,220,.4),transparent 70%);"></div>
+  <div class="orb" style="top:1400px;left:-160px;width:520px;height:520px;background:radial-gradient(circle,rgba(205,7,30,.28),transparent 70%);"></div>
+  <div class="orb" style="top:2400px;right:-140px;width:520px;height:520px;background:radial-gradient(circle,rgba(120,90,255,.3),transparent 70%);"></div>
+
+  <!-- NAV (dark) -->
+  <div style="position:sticky;top:0;z-index:100;padding:14px 22px 0;">
+    <div class="pad-m" style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:13px 24px;border-radius:0px;background:rgba(255,255,255,.07);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.16);box-shadow:0 10px 34px -14px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.22);">
+      <a href="Domu.dc.html"><img src="assets/logo-ondark.png" alt="KANOV — Podnikatelský inkubátor" style="height:30px;display:block;"></a>
+      <div class="hide-m" style="display:flex;align-items:center;gap:28px;">
+        <a class="nlink" href="Prostory.dc.html">Prostory</a>
+        <a class="nlink" href="Startupy.dc.html">Startupy &amp; studenti</a>
+        <a class="nlink active" href="Inovace.dc.html">Inovace &amp; hub</a>
+        <a class="nlink" href="O-nas.dc.html">O nás</a>
+        <a class="nlink" href="Kontakt.dc.html">Kontakt</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <div class="hide-m" style="display:flex;gap:6px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;">
+          <span style="color:#fff;">CZ</span><span style="color:#5a6070;">DE</span><span style="color:#5a6070;">EN</span>
+        </div>
+        <a class="btn-red" href="Kontakt.dc.html" style="padding:11px 20px;font-size:14px;">Domluvit prohlídku</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative;margin-top:-78px;">
+    <div style="position:relative;height:680px;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?w=1900&q=80" alt="Digitální hub" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;">
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,11,18,.55) 0%,rgba(8,11,18,.3) 30%,rgba(8,11,18,.94) 100%);"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 6%,rgba(80,140,220,.22),transparent 45%);"></div>
+      <div class="pad-m" style="position:absolute;left:0;right:0;bottom:120px;max-width:1280px;margin:0 auto;padding:0 34px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:8px 16px;margin-bottom:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.2);"><span style="width:7px;height:7px;border-radius:50%;background:#3ddc84;box-shadow:0 0 10px #3ddc84;"></span><span style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;">DIGITÁLNÍ HUB · ONLINE</span></div>
+        <h1 class="hero-h1" style="font-family:'Klavika','Saira Semi Condensed','Saira',sans-serif;font-weight:800;font-size:72px;line-height:.96;letter-spacing:-.02em;margin:0;max-width:840px;">Kde se kraj napojuje<br>na <span style="color:#ff3b54;">budoucnost</span>.</h1>
+        <p style="font-size:18px;line-height:1.6;color:#aab0bd;margin:24px 0 0;max-width:560px;">Inovační technologie, výzkum a digitalizace pod jednou prosklenou střechou. Propojujeme startupy, univerzity a firmy do jedné inovační sítě.</p>
+      </div>
+    </div>
+    <div class="pad-m grid-m2" style="position:relative;margin-top:-72px;z-index:5;max-width:1280px;margin-left:auto;margin-right:auto;padding:0 34px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+      <div class="gcard-d" style="padding:22px 24px;"><div style="font-size:34px;font-weight:800;">∞</div><div style="font-size:12.5px;color:#9aa0ad;margin-top:3px;">technologie &amp; výzkum</div></div>
+      <div class="gcard-d" style="padding:22px 24px;"><div style="font-size:34px;font-weight:800;">CZ<span style="font-size:15px;color:#ff5a6e;"> + </span>DE</div><div style="font-size:12.5px;color:#9aa0ad;margin-top:3px;">univerzitní spolupráce</div></div>
+      <div class="gcard-d" style="padding:22px 24px;"><div style="font-size:34px;font-weight:800;">2</div><div style="font-size:12.5px;color:#9aa0ad;margin-top:3px;">propojené pobočky</div></div>
+      <div class="gcard-d" style="padding:22px 24px;"><div style="font-size:34px;font-weight:800;">1</div><div style="font-size:12.5px;color:#9aa0ad;margin-top:3px;">digitální hub regionu</div></div>
+    </div>
+  </div>
+
+  <!-- PILÍŘE -->
+  <div class="pad-m" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:84px 34px 30px;">
+    <div style="width:48px;height:5px;background:#CD071E;margin-bottom:24px;"></div>
+    <h2 class="sec-h2" style="font-weight:800;font-size:40px;letter-spacing:-.02em;margin:0 0 12px;">Pilíře inovační infrastruktury</h2>
+    <p style="font-size:16.5px;color:#aab0bd;line-height:1.7;max-width:640px;margin:0 0 32px;">Spojujeme technologie, vzdělávání a podnikání tak, aby z Karlovarského kraje vznikalo silné a sebevědomé inovační prostředí.</p>
+    <div class="grid-m2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="gcard-d" style="padding:34px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;"><div style="font-size:30px;font-weight:800;color:#7fb0ff;">⌘</div><div><div style="font-size:22px;font-weight:800;">Digitální hub</div><p style="font-size:14.5px;color:#9aa0ad;margin:8px 0 0;line-height:1.6;max-width:440px;">Centrální místo digitalizace regionu — zázemí, nástroje a know-how pro firmy, které chtějí posunout své procesy do digitálního světa.</p></div></div>
+      <div class="gcard-d" style="padding:34px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;"><div style="font-size:30px;font-weight:800;color:#7fb0ff;">∞</div><div><div style="font-size:22px;font-weight:800;">Inovační technologie</div><p style="font-size:14.5px;color:#9aa0ad;margin:8px 0 0;line-height:1.6;max-width:440px;">Podpora vývoje, výzkumu a transferu technologií z laboratoří a škol přímo do praxe a na trh.</p></div></div>
+      <div class="gcard-d" style="padding:34px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;"><div style="font-size:30px;font-weight:800;color:#7fb0ff;">⬡</div><div><div style="font-size:22px;font-weight:800;">Univerzity CZ + DE</div><p style="font-size:14.5px;color:#9aa0ad;margin:8px 0 0;line-height:1.6;max-width:440px;">Přeshraniční spolupráce s vysokými školami v regionu i v Německu — sdílení výzkumu, studentů a projektů.</p></div></div>
+      <div style="position:relative;overflow:hidden;padding:34px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(135deg,rgba(205,7,30,.34),rgba(205,7,30,.08));backdrop-filter:blur(22px);border:1px solid rgba(255,90,110,.32);box-shadow:inset 1.5px 1.5px 0 rgba(255,255,255,.2),0 26px 60px -28px rgba(0,0,0,.7);"><div style="font-size:30px;font-weight:800;color:#ff8a98;">↗</div><div><div style="font-size:22px;font-weight:800;">Transfer do praxe</div><p style="font-size:14.5px;color:#e8c2c8;margin:8px 0 0;line-height:1.6;max-width:440px;">Pomáháme firmám zavádět nové technologie a posilovat konkurenceschopnost kraje.</p></div></div>
+    </div>
+  </div>
+
+  <!-- UNIVERZITY (glass over photo) -->
+  <div class="pad-m" style="position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:60px 34px 30px;">
+    <div style="position:relative;overflow:hidden;min-height:420px;">
+      <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=1600&q=80" alt="Univerzitní spolupráce" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+      <div style="position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,11,18,.92),rgba(8,11,18,.4));"></div>
+      <div class="grid-m1" style="position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:52px 48px;align-items:center;">
+        <div>
+          <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;color:#ff8a98;margin:0 0 12px;text-transform:uppercase;">Přeshraniční spolupráce</p>
+          <h2 class="sec-h2" style="font-weight:800;font-size:36px;letter-spacing:-.02em;margin:0 0 16px;">Propojeni s univerzitami<br>v Česku i v Německu</h2>
+          <p style="font-size:16px;color:#c4c9d4;line-height:1.7;margin:0;max-width:480px;">Spolupracujeme s vysokými školami v regionu i za hranicemi. Společné výzkumné projekty, výměna studentů a sdílení odborného zázemí posilují celý kraj jako inovační region.</p>
+        </div>
+        <div class="grid-m2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+          <div class="gcard-d glass-glare" style="padding:22px;"><div style="font-size:15px;font-weight:800;">Výzkum</div><p style="font-size:12.5px;color:#9aa0ad;margin:5px 0 0;">Společné projekty</p></div>
+          <div class="gcard-d glass-glare" style="padding:22px;"><div style="font-size:15px;font-weight:800;">Studenti</div><p style="font-size:12.5px;color:#9aa0ad;margin:5px 0 0;">Stáže a výměny</p></div>
+          <div class="gcard-d glass-glare" style="padding:22px;"><div style="font-size:15px;font-weight:800;">Know-how</div><p style="font-size:12.5px;color:#9aa0ad;margin:5px 0 0;">Sdílení expertízy</p></div>
+          <div class="gcard-d glass-glare" style="padding:22px;"><div style="font-size:15px;font-weight:800;">Granty</div><p style="font-size:12.5px;color:#9aa0ad;margin:5px 0 0;">Přeshraniční fondy</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="pad-m" style="max-width:1280px;margin:40px auto 0;padding:0 34px;">
+    <div style="position:relative;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1600&q=80" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;">
+      <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(8,11,18,.95),rgba(8,11,18,.6));"></div>
+      <div style="position:relative;padding:64px 56px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;">
+        <div>
+          <p style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.16em;color:#ff8a98;margin:0 0 12px;text-transform:uppercase;">Spojme síly</p>
+          <h2 class="sec-h2" style="font-weight:800;font-size:36px;letter-spacing:-.02em;margin:0;line-height:1.05;">Připojte se k inovační síti kraje.</h2>
+          <p style="font-size:16px;color:#c4c9d4;margin:14px 0 0;max-width:480px;">Hledáte partnera pro výzkum, digitalizaci nebo transfer technologií? Ozvěte se nám.</p>
+        </div>
+        <a class="btn-red" href="Kontakt.dc.html" style="padding:18px 34px;font-size:16px;white-space:nowrap;">Kontaktovat nás →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:#05070c;color:#fff;margin-top:80px;border-top:1px solid rgba(255,255,255,.07);">
+    <div class="pad-m" style="max-width:1280px;margin:0 auto;padding:72px 34px 40px;">
+      <div class="grid-m1" style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;">
+        <div>
+          <img src="assets/logo-ondark.png" alt="KANOV" style="height:32px;display:block;margin-bottom:20px;">
+          <p style="font-size:14px;line-height:1.7;color:#8a90a0;max-width:300px;">Inovační infrastruktura Karlovarského kraje. Prostory k pronájmu, digitální hub a podpora startupů ve dvou městech kraje.</p>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Web</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <a href="Prostory.dc.html">Pronájem prostor</a><a href="Startupy.dc.html">Startupy &amp; studenti</a><a href="Inovace.dc.html">Inovace &amp; hub</a><a href="O-nas.dc.html">O nás</a><a href="Kontakt.dc.html">Kontakt</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Pobočky</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <span>Karlovy Vary — centrála</span><span>Cheb</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.12em;color:#6b7180;text-transform:uppercase;margin-bottom:16px;">Kontakt</div>
+          <div style="display:flex;flex-direction:column;gap:11px;font-size:14px;color:#c4c9d4;">
+            <span>Závodní 278, 360 18 Karlovy Vary</span><a href="mailto:info@kanov.cz">info@kanov.cz</a><span>www.kanov.cz</span>
+          </div>
+          <div style="display:flex;gap:6px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;margin-top:18px;"><span style="color:#fff;">CZ</span><span style="color:#5a6070;">DE</span><span style="color:#5a6070;">EN</span></div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.08);margin-top:48px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:#6b7180;">
+        <span>© 2026 Podnikatelský inkubátor KANOV</span>
+        <span>Posilujeme inovační potenciál Karlovarského kraje.</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="#0a0d14"/>
+<rect x="30" y="34" width="40" height="32" rx="1" fill="#CD071E"/>
+<rect x="30" y="34" width="40" height="6" fill="#e8324a"/>
+<text x="50" y="78" font-family="Arial, sans-serif" font-size="9" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="2">KANOV</text>
+</svg>
+</template>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this._mh = (e) => {
+      const t = e.target;
+      const el = t && t.closest ? t.closest('.gcard-l,.gcard-d,.glass-glare') : null;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    };
+    document.addEventListener('pointermove', this._mh, { passive: true });
+  }
+  componentWillUnmount() {
+    if (this._mh) document.removeEventListener('pointermove', this._mh);
+  }
+}
+</script>
+</body>
+</html>
